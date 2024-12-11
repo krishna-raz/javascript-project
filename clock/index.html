@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(0, 0, 0);
+        }
+
+        #clock {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #time {
+            font-size: 40px;
+            font-weight: 600;
+            color: rgb(255, 255, 255);
+        }
+
+        #hour,
+        #minute,
+        #second {
+            font-size: 40px;
+            font-weight: 600;
+            color: rgb(255, 255, 255);
+        }
+
+        #session {
+            font-size: 40px;
+            font-weight: 600;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock">
+        <div id="time">
+            <span id="hour">00</span>
+            <span>:</span>
+            <span id="minute">00</span>
+            <span>:</span>
+            <span id="second">00</span>
+            <span>:</span>
+            <span id="session">
+                AM
+            </span>
+        </div>
+    </div>
+
+</body>
+<script>
+    
+    clockcall=()=>{
+    // const hour = document.getElementById("hour");
+    const hour = document.getElementById("hour");
+    const minute = document.getElementById("minute");
+    const second = document.getElementById("second");
+    const session = document.getElementById("session");
+    
+    let time=new Date();
+
+    let newhour=time.getHours();    
+    let newminute=time.getMinutes();
+    let newsecond=time.getSeconds();
+    let newsession;
+
+
+    if(newhour>12){  
+        if(newhour==0){           
+            newsession="AM"
+        }     
+        
+        newhour=newhour-12;
+        // console.log(newhour);
+        newsession="PM"
+        
+    }
+    else{
+        // console.log(newhour);
+        newsession="AM"
+    }
+
+    if(newhour<10){
+        newhour="0"+newhour;
+    }
+    if(newminute<10){
+        newminute="0"+newminute;
+    }
+    if(newsecond<10){
+        newsecond="0"+newsecond;
+    }
+
+    hour.innerHTML=newhour;
+    minute.innerHTML=newminute;
+    second.innerHTML=newsecond;
+    session.innerHTML=newsession;
+    }
+
+    setInterval(clockcall,1000);
+
+    setInterval(()=>{
+
+        time =new Date().toLocaleTimeString();
+    console.log(time);
+    },1000);
+ 
+
+
+
+</script>
+
+
+</html>
