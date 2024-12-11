@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+ }
+ body{
+ background-image: linear-gradient(to right,#2368ab, #49ba4e);      
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 110px;
+            /* font-size: 20px; */
+            
+        }
+        .btn1{
+            height: 45px;
+            width: 180px;
+            /* padding: 10px 20px; */
+            background-color: red;
+            /* color: white; */
+            border-radius: 15px;
+            /* cursor: pointer; */
+            font-size: 24px;
+        }
+        .btn2{
+            height: 45px;
+            width: 180px;
+            padding: 10px 20px;
+            background-color: red;
+            /* color: white; */
+            border-radius: 15px;
+            /* cursor: pointer; */
+            font-size: 24px;
+        }
+        .code{ 
+        width: 500px;
+            height: 100px;
+            border: 1px solid black;
+            background-image: linear-gradient(to right,#27f3a559, #4b62bb69);
+            color: white;
+            font-size: 22px;
+            border-radius: 15px;
+            padding-top: 15px;
+            padding-left: 10px;
+            
+        }
+        .btn1:hover{
+            background-color: black;
+            color: white;
+        }
+        .code:hover{
+            background-color: black;
+            color: white;
+        }
+        .btn2:hover{
+            background-color: black;
+            color: white;
+        }
+        h2{
+            margin-top: 20px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="buttons">
+            <button class="btn1">#2368ab </button>
+            <button class="btn2">#49ba4e</button>
+            
+        </div>
+        <h2>copy your code here</h2>
+        <div class="code">
+            background-image: linear-gradient(to right,#27f3a559, #4b62bb69);
+        </div>
+    </section>
+</body>
+<script>
+    const btn1 = document.querySelector(".btn1");
+    const btn2 = document.querySelector(".btn2");
+    const code = document.querySelector(".code");
+
+
+
+    haxValueGenerator=()=>{
+        let randomValue = Math.floor(Math.random()*16); 
+        const hexValue = "0123456789ABCDEF";
+        for(let i=0;i<6;i++){
+            randomValue += hexValue[Math.floor(Math.random()*16)];
+        }
+        
+       return randomValue;
+    }
+
+    // haxValueGenerator();
+    let rbh1="49ba4e";
+    let rbh2="2368ab";
+  
+
+    const Handlebut1=()=>{
+        const rbh1= haxValueGenerator();
+        document.querySelector(".btn1").innerHTML = "#"+rbh1;
+        console.log(rbh1);
+        code.innerHTML = `background-image: linear-gradient(to right, #${rbh1}, #${rbh2})`;
+        document.body.style.backgroundImage = `linear-gradient(to right, #${rbh1}, #${rbh2})`;
+        navigator.clipboard.writeText(`background-image: linear-gradient(to right, #${rbh1}, #${rbh2})`);
+
+
+    }
+    const Handlebut2=()=>{
+        const rbh2= haxValueGenerator();
+        document.querySelector(".btn2").innerHTML = "#"+rbh2;
+        console.log(rbh2);
+        code.innerHTML = `background-image: linear-gradient(to right, #${rbh1}, #${rbh2})`;
+        document.body.style.backgroundImage = `linear-gradient(to right, #${rbh1}, #${rbh2})`;
+        navigator.clipboard.writeText(`background-image: linear-gradient(to right, #${rbh1}, #${rbh2})`);
+    }
+    btn1.addEventListener("click",Handlebut1);
+    btn2.addEventListener("click",Handlebut2);
+    code.addEventListener("click",()=>{
+        navigator.clipboard.writeText(`background-image: linear-gradient(to right, #${rbh1}, #${rbh2})`);
+        alert("code copied");
+    })
+   
+</script>
+</html>

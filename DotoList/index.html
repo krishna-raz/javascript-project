@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do To LIST</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+
+        }
+
+        .contaner {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(218, 218, 218);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contaner h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .inerbox {
+            width: 40%;
+            height: 80%;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .inerbox .box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .inerbox .box input {
+            width: 70%;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            font-size: 1.2rem;
+            padding: 0 10px;
+        }
+
+        .inerbox .box button {
+            width: 20%;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .taskshow {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            padding: 10px;
+
+        }
+
+        .taskshow li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .taskshow li .task {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .taskshow li .Delete {
+            width: 20%;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .taskshow li .Delete:hover {
+            background-color: #0069d9;
+        }
+
+        .taskshow li .Delete:active {
+            background-color: #005cbf;
+        }
+
+        .taskshow li .Delete:focus {
+            outline: none;
+        }
+    </style>
+
+
+
+
+    </style>
+    </style>
+</head>
+
+<body>
+    <section class="contaner">
+        <h1>To Do List</h1>
+        <div class="inerbox">
+            <div class="box">
+                <input type="text" placeholder="Add your task" />
+                <button class="add">Add</button>
+            </div>
+            <div>
+                <ul class="taskshow">
+
+
+
+                </ul>
+            </div>
+
+
+        </div>
+    </section>
+</body>
+<script src="script.js"></script>
+<script>
+    
+            
+</script>
+
+</html>
