@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        #timer {
+            font-size: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #00d2ff;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00aaff;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        section {
+            text-align: center;
+        }
+
+        .gettimedata {
+            background-color: rgba(0, 0, 0, 0.6);
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gettimedata p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .closetime {
+            background-color: #ff6b6b;
+        }
+
+        .closetime:hover {
+            background-color: #ff4b4b;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>StopWatch</h1>
+        <section>
+            <div id="timer">00:00:00</div>
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+            <button id="gettime">Get Time</button>
+            <button id="closetime" class="closetime">Close Time</button>
+        </section>
+        <div class="gettimedata"></div>
+    </div>
+
+    <script>
+        const timer = document.getElementById("timer");
+        const start = document.getElementById("start");
+        const stop1 = document.getElementById("stop");
+        const reset = document.getElementById("reset");
+        const gettime = document.getElementById("gettime");
+        const closetime = document.getElementById("closetime");
+        const gettimedata = document.querySelector(".gettimedata");
+
+        let interval;
+        let time = 0;
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+
+        const startbtn = () => {
+            interval = setInterval(() => {
+             time++;
+                seconds = time % 60;
+                minutes = Math.floor(time / 60) % 60;
+                hours = Math.floor(time / 3600);
+                timer.innerText = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+            }, 1000)
+        };
+
+        const stopbtn = () => {
+            clearInterval(interval);
+        };
+
+        const resetbtn = () => {
+            time = 0;
+            clearInterval(interval);
+            timer.innerText = "00:00:00";
+        };
+
+        const gettimedatabtn = () => {
+            const data = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+            gettimedata.innerHTML += `<p>Time: ${data}</p>`;
+            // alert(data); // This will show the time in alert
+        };
+
+        start.addEventListener("click", startbtn);
+        stop1.addEventListener("click", stopbtn);
+        reset.addEventListener("click", resetbtn);
+        gettime.addEventListener("click", gettimedatabtn);
+        closetime.addEventListener("click", () => {
+            gettimedata.innerHTML = "";  // Clear the displayed time
+        });
+    </script>
+</body>
+
+</html>

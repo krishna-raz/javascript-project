@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Sync Text</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+        // Function to fetch and display uploaded files as images
+        async function fetchAndDisplayFiles() {
+            const response = await fetch('/files');
+            const fileUrls = await response.json();
+
+            const container = document.getElementById('file-container');
+            container.innerHTML = ''; // Clear existing content
+            fileUrls.forEach(url => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = 'Uploaded File';
+                img.style.width = '150px';
+                img.style.margin = '10px';
+                container.appendChild(img);
+            });
+        }
+
+        // Load files when the page loads
+        window.onload = fetchAndDisplayFiles;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>WiFi Sync App</h1>
+        
+        <!-- Shared Text Area -->
+        <div class="sync-area">
+            <h2>Shared Text</h2>
+            <textarea id="sharedText" rows="10"><%= sharedText %></textarea>
+        </div>
+        
+
+        
+       
+    
+    <!-- Socket.IO and Client Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+</body>
+</html>

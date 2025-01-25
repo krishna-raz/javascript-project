@@ -1,0 +1,408 @@
+
+/* Reset some styles for consistency */
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    /* Body and general layout */
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    
+    }
+    
+    /* Header Section */
+    .section-navbar {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    }
+    
+    /* Top Text Section */
+    .top_txt {
+    background-color: #222;
+    padding: 13px 0;
+    }
+    
+    .head.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px;
+    }
+    
+    .head_txt p {
+    font-size: 14px;
+    }
+    
+    .sing_in_up a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+    
+    }
+    
+    .sing_in_up a:hover {
+    text-decoration: underline;
+    color: #ff7f50;
+    }
+    
+    /* Navbar Section */
+    .navbar {
+    background-color: #444;
+    padding: 10px 0;
+    }
+    
+    .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    }
+    
+    .logo_navbar a {
+    display: flex;
+    align-items: center;
+    }
+    
+    .logo_navbar img {
+    max-height: 50px;
+    }
+    
+    .navbar_menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    }
+    
+    .nav-item {
+    margin: 0 20px;
+    }
+    
+    .nav-item a {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    }
+    
+    .nav-item a:hover {
+    color: #ff7f50;
+    }
+    
+    /* Cart Icon Section */
+    .add-to-cart-button {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    color: white;
+    }
+    
+    .add-to-cart-button i {
+    background: #271a09;
+    margin-right: 6px;
+    padding: 16px;
+    border-radius: 16px;
+    height: 55px;
+    width: 88px;
+    }
+    .add-to-cart-button:hover {
+    color: #ff7f50;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+    .head.container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .navbar_menu ul {
+        flex-direction: column;
+    }
+    
+    .nav-item {
+        margin: 10px 0;
+    }
+    
+    .sing_in_up {
+        margin-top: 10px;
+    }
+    }
+    
+    /* Main Section Styles */
+    .main_section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+        padding: 20vh;
+        background: linear-gradient(to right, #f0cdc1, #986811);
+        background-color: #f4f4f4;
+    }
+    
+    /* Container for Text and Button */
+    .container_main1 {
+        width: 50%;
+        padding: 20px;
+    }
+    
+    .main_section_txt {
+        max-width: 500px;
+    }
+    
+    .main_section_title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    
+    .main_section_h1 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 20px;
+    }
+    
+    .main_section_desc {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+    
+    .main_section_btn {
+        background-color: #ff7f50; /* Orange button */
+        color: white;
+        padding: 12px 25px;
+        font-size: 18px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .main_section_btn:hover {
+        background-color: #e66a3b; /* Darker shade of orange on hover */
+    }
+    
+    /* Container for Image */
+    .container_main2 {
+        width: 50%;
+        padding: 20px;
+    }
+    
+    .container_main2 img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Responsive Design for Smaller Screens */
+    @media (max-width: 768px) {
+        .main_section {
+            flex-direction: column;
+            text-align: center;
+        }
+    
+        .container_main1, .container_main2 {
+            width: 100%;
+            padding: 20px;
+        }
+    
+        .main_section_title {
+            font-size: 20px;
+        }
+    
+        .main_section_h1 {
+            font-size: 28px;
+        }
+    
+        .main_section_desc {
+            font-size: 14px;
+        }
+    
+        .main_section_btn {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+    }
+    /* Offer Section */
+
+/* Offer Section Styles */
+/* Offer Section - New Year Sale Card Styles */
+.offer_section {
+    /* padding: 50px 15px; */
+    display: flex;
+    margin-top: 20px;
+    /* margin-bottom: 140px; */
+    padding: auto;
+    background-color: #f8f8f8;
+}
+
+.container_sela {
+    width: 420px;;
+    height: 220px;
+    display: flex;
+    margin-left: 30px;
+   
+    justify-content: space-between;
+    
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.container_sela:hover {
+    transform: translateY(-5px);
+}
+
+.offer-text {
+
+    flex: 1;
+    padding-right: 10px; /* Space between text and image */
+}
+
+.new_year {
+    font-size: 26px;
+    font-weight: bold;
+    color: #f3a847;
+    margin-bottom: 10px;
+    
+    
+}
+
+.offer_des {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.offer_btn {
+    background-color: #f3a847;
+    border: none;
+    padding: 12px 25px;
+    font-size: 6px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.offer_btn:hover {
+    background-color: #ff8f29;
+    transform: scale(1.05);
+}
+
+.offer-img {
+    flex: 1;
+    text-align: center;
+}
+
+.offer-img img {
+    max-width: 209px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container_sela {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .offer-text {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .offer-btn {
+        width: 100%;
+    }
+}
+
+
+
+   
+
+
+    
+    /* .offer_btn:hover { */
+   
+    /* Section Policy */
+    .section-policy {
+        background-color: #f8f8f8; /* Light background for the policy section */
+        padding: 40px 20px;
+    }
+    
+    /* Container for Grid Layout */
+    .container.grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+        gap: 20px; /* Space between the grid items */
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Individual Policy Item */
+    .div-policy {
+        background-color: #ffffff; /* White background for each policy item */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .div-policy:hover {
+        transform: translateY(-10px); /* Slight hover effect */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    }
+    
+    /* Icon Style */
+    .icons {
+        font-size: 36px;
+        color: #ff7f50; /* Orange color for icons */
+        margin-bottom: 15px;
+    }
+    
+    /* Text for each policy */
+    .div-policy-text p {
+        font-size: 16px;
+        color: #333;
+        margin: 5px 0;
+    }
+    
+    /* Responsive Design for Smaller Screens */
+    @media (max-width: 1024px) {
+        .container.grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .container.grid {
+            grid-template-columns: 1fr; /* 1 column on small screens */
+        }
+    
+        .div-policy-text p {
+            font-size: 14px; /* Smaller text on small screens */
+        }
+    }
+    

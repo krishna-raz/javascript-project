@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body {
+        background-color: #e3f9ff;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        background-color: #35bf5c;
+        padding: 30px;
+        border-radius: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-box {
+        background-color: #ebfffc;
+        border-radius: 10px;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .search-bar {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: #555;
+        background-color: transparent;
+        border-radius: 8px;
+      }
+
+      .search-btn {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .search-btn img {
+        width: 25px;
+        height: 25px;
+      }
+
+      .weather-box {
+        text-align: center;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .weather-icon img {
+        width: 150px;
+        margin-bottom: 20px;
+      }
+
+      .weather-temp h1 {
+        font-size: 80px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .weather-location h2 {
+        font-size: 45px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .weather-desc h3 {
+        font-size: 25px;
+        color: #777;
+      }
+
+      @media (max-width: 500px) {
+        .search-box {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .search-bar {
+          margin-bottom: 10px;
+        }
+
+        .weather-temp h1 {
+          font-size: 60px;
+        }
+
+        .weather-location h2 {
+          font-size: 35px;
+        }
+
+        .weather-desc h3 {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="container">
+      <form class="search-box">
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Enter city name"
+          aria-label="Search for weather"
+        />
+
+        <button class="search-btn" aria-label="Search button">
+          <img
+            src="https://img.icons8.com/ios/452/search.png"
+            alt="Search icon"
+          />
+        </button>
+      </form>
+
+      <div class="weather-box">
+        <div class="weather-icon">
+          
+        </div>
+        <div class="weather-temp">
+          <h1>24°C</h1>
+        </div>
+        <div class="weather-location">
+          <h2>London</h2>
+        </div>
+        <div class="weather-desc">
+          <h3>Sunny</h3>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const input = document.querySelector(".search-bar");
+    const searchBtn = document.querySelector(".search-box");
+    const weatherIcon = document.querySelector(".weather-icon");
+    const weatherTemp = document.querySelector(".weather-temp h1");
+    const weatherLocation = document.querySelector(".weather-location h2");
+    const weatherDescption = document.querySelector(".weather-desc");
+    // const weathericon=document.querySelector(."weather-icon");
+
+
+    // weatherLocation.textContent="Darbhang";
+    let cityname = "darbhanga";
+    weatherLocation.innerHTML = cityname;
+
+    // console.log(cityname);
+    const ApiCAll = async (cityname) => {
+      const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=5581b2ee37d113f57e3a6aaa2de4fea4`;
+      const api = await fetch(apiurl);
+      const data = await api.json();
+    //   try {
+    //     console.log(data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+
+      weatherLocation.innerHTML = data.name;
+      weatherTemp.innerHTML = data.main.temp;
+      weatherDescption.innerHTML=data.weather[0].main;
+      console.log(data.weather[0].icon)
+      weatherIcon.innerHTML=`<img
+            src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"
+            alt="Weather Icon"
+          />`
+      // weatherLocation.innerHTML = data.name;
+    };
+    // console.log(apiurl);
+    ApiCAll(cityname);
+
+    const findinput = (event) => {
+      event.preventDefault();
+
+      const cityname1 = input.value.trim();
+      weatherLocation.innerHTML = cityname1;
+      console.log(cityname1);
+      // cityname="";
+      if (cityname1) {
+        ApiCAll(cityname1);
+        console.log("ok");
+      } else {
+        // console.log("xjcxc");
+      }
+    };
+    searchBtn.addEventListener("click", findinput);
+  
+  </script>
+</html>

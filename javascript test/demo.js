@@ -1,0 +1,131 @@
+// JavaScript code to dynamically create the Tenses Table
+const tensesData = [
+    {
+        type: "Simple",
+        present: {
+            formula: "Sub + V1 (+s/es)",
+            exampleEn: "He plays cricket.",
+            exampleHi: "वह क्रिकेट खेलता है।"
+        },
+        past: {
+            formula: "Sub + V2",
+            exampleEn: "He played cricket.",
+            exampleHi: "उसने क्रिकेट खेला।"
+        },
+        future: {
+            formula: "Sub + will/shall + V1",
+            exampleEn: "He will play cricket.",
+            exampleHi: "वह क्रिकेट खेलेगा।"
+        }
+    },
+    {
+        type: "Continuous",
+        present: {
+            formula: "Sub + is/am/are + V1 + ing",
+            exampleEn: "He is playing cricket.",
+            exampleHi: "वह क्रिकेट खेल रहा है।"
+        },
+        past: {
+            formula: "Sub + was/were + V1 + ing",
+            exampleEn: "He was playing cricket.",
+            exampleHi: "वह क्रिकेट खेल रहा था।"
+        },
+        future: {
+            formula: "Sub + will/shall be + V1 + ing",
+            exampleEn: "He will be playing cricket.",
+            exampleHi: "वह क्रिकेट खेल रहा होगा।"
+        }
+    },
+    {
+        type: "Perfect",
+        present: {
+            formula: "Sub + has/have + V3",
+            exampleEn: "He has played cricket.",
+            exampleHi: "उसने क्रिकेट खेला है।"
+        },
+        past: {
+            formula: "Sub + had + V3",
+            exampleEn: "He had played cricket.",
+            exampleHi: "उसने क्रिकेट खेल लिया था।"
+        },
+        future: {
+            formula: "Sub + will/shall have + V3",
+            exampleEn: "He will have played cricket.",
+            exampleHi: "वह क्रिकेट खेल चुका होगा।"
+        }
+    },
+    {
+        type: "Perfect Continuous",
+        present: {
+            formula: "Sub + has/have been + V1 + ing",
+            exampleEn: "He has been playing cricket for 2 hours.",
+            exampleHi: "वह दो घंटे से क्रिकेट खेल रहा है।"
+        },
+        past: {
+            formula: "Sub + had been + V1 + ing",
+            exampleEn: "He had been playing cricket for 2 hours.",
+            exampleHi: "वह दो घंटे से क्रिकेट खेल रहा था।"
+        },
+        future: {
+            formula: "Sub + will/shall have been + V1 + ing",
+            exampleEn: "He will have been playing cricket for 2 hours.",
+            exampleHi: "वह दो घंटे से क्रिकेट खेल रहा होगा।"
+        }
+    }
+];
+
+// Function to create and display the table
+document.addEventListener("DOMContentLoaded", () => {
+    const table = document.createElement("table");
+    table.style.width = "100%";
+    table.style.borderCollapse = "collapse";
+
+    const thead = document.createElement("thead");
+    thead.innerHTML = `
+        <tr>
+            <th style='border: 1px solid #000; padding: 10px;'>Tense Type</th>
+            <th style='border: 1px solid #000; padding: 10px;'>Present</th>
+            <th style='border: 1px solid #000; padding: 10px;'>Past</th>
+            <th style='border: 1px solid #000; padding: 10px;'>Future</th>
+        </tr>
+    `;
+    table.appendChild(thead);
+
+    const tbody = document.createElement("tbody");
+
+    tensesData.forEach(tense => {
+        const row = document.createElement("tr");
+
+        const typeCell = document.createElement("td");
+        typeCell.style.border = "1px solid #000";
+        typeCell.style.padding = "10px";
+        typeCell.textContent = tense.type;
+
+        const presentCell = createTenseCell(tense.present);
+        const pastCell = createTenseCell(tense.past);
+        const futureCell = createTenseCell(tense.future);
+
+        row.appendChild(typeCell);
+        row.appendChild(presentCell);
+        row.appendChild(pastCell);
+        row.appendChild(futureCell);
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    document.body.appendChild(table);
+});
+
+// Helper function to create a cell with formula and examples
+function createTenseCell(tense) {
+    const cell = document.createElement("td");
+    cell.style.border = "1px solid #000";
+    cell.style.padding = "10px";
+    cell.innerHTML = `
+        <strong>Formula:</strong> ${tense.formula}<br>
+        <strong>Example (English):</strong> ${tense.exampleEn}<br>
+        <strong>Example (Hindi):</strong> ${tense.exampleHi}
+    `;
+    return cell;
+}
